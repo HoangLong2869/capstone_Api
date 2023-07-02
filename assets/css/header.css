@@ -67,7 +67,8 @@
   border-width: 2px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.2);
-  border-image: initial;
+  -o-border-image: initial;
+     border-image: initial;
   border-radius: 10000000000px;
   padding: 10px 22px;
   text-decoration: none;

@@ -16,7 +16,8 @@
 .cart-wrapper-icon img {
   width: 80%;
   height: 80%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
 }
 .cart-wrapper-icon .jsx-count-cart {
