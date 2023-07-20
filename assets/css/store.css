@@ -4,7 +4,7 @@
   overflow-x: hidden;
 }
 .store-wrapper .banner-image {
-  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("https://static.vecteezy.com/system/resources/thumbnails/007/926/257/small/futuristic-hud-interface-technology-background-vector.jpg");
+  background: url("https://t4.ftcdn.net/jpg/02/71/29/75/360_F_271297554_0DAlzyFb8jzYg0lfmUOzyhtMer0orz4h.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -317,6 +317,7 @@
   padding: 14px 18px;
   background-color: #f8f9fa;
   border-radius: 2px;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
 .store-wrapper .cart-detail .cart-wrapper .jsx-chuk .body-jsx .detail-cart .title-cart {
   padding: 6px 0;
@@ -483,33 +484,6 @@
   background: none;
   color: white;
   padding: 6px 10px;
-}
-
-.btn-4 {
-  border: 1px solid;
-  overflow: hidden;
-  position: relative;
-}
-.btn-4 span {
-  z-index: 20;
-}
-.btn-4:after {
-  background: #fff;
-  content: "";
-  height: 155px;
-  left: -75px;
-  opacity: 0.2;
-  position: absolute;
-  top: -50px;
-  transform: rotate(35deg);
-  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-  width: 50px;
-  z-index: -10;
-}
-
-.btn-4:hover:after {
-  left: 120%;
-  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .banner-phone-image {

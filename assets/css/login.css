@@ -136,10 +136,12 @@
   position: absolute;
   top: 60px;
   right: 40px;
+  font-family: "Public Sans", sans-serif;
   font-weight: 400;
   font-size: 12px;
 }
 .auth-container .content-authentication .row-authentication .jsx-right-authentication .jax-sd a {
+  font-family: "Public Sans", sans-serif;
   color: rgb(32, 101, 209);
   font-size: 12px;
   -webkit-text-decoration: underline rgba(32, 101, 209, 0.4);
@@ -159,6 +161,7 @@
 .auth-container .content-authentication .row-authentication .jsx-right-authentication .title-authentication h1 {
   font-size: 1.5rem;
   overflow: hidden;
+  font-family: "Public Sans", sans-serif;
   font-weight: 600;
   color: rgb(33, 43, 54);
 }
@@ -166,6 +169,7 @@
   margin: 0px 0px 12px;
   line-height: 1.5;
   font-size: 0.8rem;
+  font-family: "Public Sans", sans-serif;
   font-weight: 400;
   color: rgb(99, 115, 129);
 }
@@ -200,6 +204,7 @@
   }
 }
 .auth-container .content-authentication .row-authentication .jsx-right-authentication .row-jax .chuk-jax-auth .forgot-pass button {
+  font-family: "Public Sans", sans-serif;
   color: rgb(32, 101, 209);
   text-decoration: none;
   border: none;
@@ -289,6 +294,7 @@
   font-size: 14px;
   height: 56px;
   width: 465px;
+  font-family: "Public Sans", sans-serif;
   border-radius: 6px;
   padding-left: 10px;
 }
@@ -331,6 +337,7 @@
   line-height: 1.71429;
   font-size: 0.9375rem;
   text-transform: capitalize;
+  font-family: "Public Sans", sans-serif;
   min-width: 64px;
   padding: 8px 22px;
   border-radius: 8px;
@@ -367,6 +374,7 @@
   line-height: 12px;
   font-size: 12px;
   padding: 0 6px;
+  font-family: "Public Sans", sans-serif;
   font-weight: 400;
   color: rgb(99, 115, 129);
   text-transform: uppercase;

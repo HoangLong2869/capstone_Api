@@ -8,7 +8,7 @@
       href="../../assets/img/amd.svg"
       type="image/x-icon"
     />
-    <title>Flag Shop</title>
+    <title>Flag Shop-Admin</title>
     <link rel="stylesheet" href="../../assets/css/reset.css" />
     <link rel="stylesheet" href="../../assets/css/admin.css" />
     <link rel="stylesheet" href="../../assets/css/global.css" />
@@ -97,7 +97,7 @@
           </table>
         </div>
         <div class="d-flex justify-content-end pt-5">
-          <button class="btn btn-primary" id="log-out">Đăng xuất</button>
+          <button class="btn btn-danger" id="log-out">Log out</button>
         </div>
       </div>
 
@@ -134,7 +134,7 @@
                   <input
                     type="text"
                     class="form-control input-add-data"
-                    placeholder="Iphone 11"
+                    placeholder="Phone Name"
                     name="name"
                     required
                   />
@@ -143,7 +143,7 @@
                   <label class="form-label">Giá sản phẩm</label>
                   <input
                     class="form-control input-add-data"
-                    placeholder="10000"
+                    placeholder="Price"
                     name="price"
                     type="number"
                     required
@@ -154,7 +154,7 @@
                   <input
                     type="text"
                     class="form-control input-add-data"
-                    placeholder="screen 67"
+                    placeholder="Screen"
                     name="screen"
                     required
                   />
@@ -162,7 +162,7 @@
                 <div class="mb-3">
                   <label class="form-label">Hãng sản phẩm</label>
                   <select name="type" class="form-control input-add-data" id="">
-                    <option value="apple">Apple</option>
+                    <option value="iphone">Iphone</option>
                     <option value="samsung">Samsung</option>
                   </select>
                 </div>
@@ -172,7 +172,7 @@
                     type="text"
                     name="backCamera"
                     class="form-control input-add-data"
-                    placeholder="12 MP"
+                    placeholder="MP"
                     required
                   />
                 </div>
@@ -182,7 +182,7 @@
                     type="text"
                     name="frontCamera"
                     class="form-control input-add-data"
-                    placeholder="22 MP"
+                    placeholder="MP"
                     required
                   />
                 </div>
@@ -192,7 +192,7 @@
                     type="text"
                     name="img"
                     class="form-control input-add-data"
-                    placeholder="https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg"
+                    placeholder="Link Image"
                     required
                   />
                 </div>
@@ -205,7 +205,7 @@
                     rows="10"
                     style="min-height: 300px"
                     class="form-control input-add-data"
-                    placeholder="Viết mô tả sản phẩm..."
+                    placeholder="Description"
                     required
                   ></textarea>
                 </div>
@@ -229,6 +229,6 @@
     </div>
 
     <script src="../../admin/controller/admin.js"></script>
-    <script src="../../assets/js/include.js"></script>
+    <script src="../../customer/model/include.js"></script>
   </body>
 </html>

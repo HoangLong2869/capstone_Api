@@ -2,11 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="./assets/img/amd.svg" type="image/x-icon" />
-    <title>Flag Shop</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="Free HTML Templates" name="keywords" />
     <meta content="Free HTML Templates" name="description" />
+    <link
+      rel="shortcut icon"
+      href="../assets/img/amd.svg"
+      type="image/x-icon"
+    />
+    <title>Flag Shop-Contact</title>
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon" />
@@ -15,45 +19,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&family=Roboto:wght@100&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- font awesome -->
+    <!-- Icon Font Stylesheet -->
     <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <!-- line awesome -->
-    <link
-      rel="stylesheet"
-      href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
     />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <!-- fancybox -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"
-    />
-    <!-- flaticon -->
-    <link rel="stylesheet" href="./assets/lib/flaticon/flaticon.css" />
+
     <!-- Libraries Stylesheet -->
-    <link href="./assets/lib/animate/animate.min.css" />
-    <!-- Template Stylesheet-->
-    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="./assets/css/header.css" rel="stylesheet" />
-    <link href="./assets/css/footer.css" rel="stylesheet" />
-    <link href="./assets/css/style.css" rel="stylesheet" />
+    <link
+      href="../lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="../lib/animate/animate.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="../contact/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="../contact/style.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -83,13 +74,13 @@
               <a href="/">Home</a>
             </span>
             <span>
-              <a href="./admin/views/admin.html">Admin</a>
+              <a href="../admin/views/admin.html">Admin</a>
             </span>
             <span>
-              <a href="./customer/views/store.html">Store</a>
+              <a href="../customer/views/store.html">Store</a>
             </span>
             <span>
-              <a href="./contact.html">Contact</a>
+              <a href="../contact/contact.html">Contact</a>
             </span>
           </div>
           <div class="right-header">
@@ -105,16 +96,16 @@
                     <i class="bi bi-backspace"></i>
                   </label>
                   <li>
-                    <a href="../../../index.html">Home</a>
+                    <a href="../index.html">Home</a>
                   </li>
                   <li>
-                    <a href="../../../admin/views/admin.html">Admin</a>
+                    <a href="../admin/views/admin.html">Admin</a>
                   </li>
                   <li>
-                    <a href="../../../customer/views/store.html">Store</a>
+                    <a href="../customer/views/store.html">Store</a>
                   </li>
                   <li>
-                    <a href="../../../contact.html">Contact</a>
+                    <a href="../contact/contact.html">Contact</a>
                   </li>
                 </ul>
               </label>
@@ -131,9 +122,7 @@
           style="max-width: 600px"
         >
           <h5 class="fw-bold text-primary text-uppercase">Contact Us</h5>
-          <h1 class="mb-0 animate__animated animate__fadeInUp">
-            If You Have Any Query, Feel Free To Contact Us
-          </h1>
+          <h1 class="mb-0">If You Have Any Query, Feel Free To Contact Us</h1>
         </div>
         <div class="row g-5 mb-5">
           <div class="col-lg-4">
@@ -166,7 +155,7 @@
               </div>
               <div class="ps-4">
                 <h5 class="mb-2">Email to get free quote</h5>
-                <h4 class="text-primary mb-0">flagshop@gmail.com</h4>
+                <h4 class="text-primary mb-0">info@example.com</h4>
               </div>
             </div>
           </div>
@@ -188,8 +177,8 @@
             </div>
           </div>
         </div>
-        <div class="row g-5 wow animate__ animate__fadeInLeft">
-          <div class="col-lg-6">
+        <div class="row g-5">
+          <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
             <form>
               <div class="row g-3">
                 <div class="col-md-6">
@@ -231,7 +220,7 @@
               </div>
             </form>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-6 wow slideInUp" data-wow-delay="0.6s">
             <iframe
               class="position-relative rounded w-100 h-100"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
@@ -248,48 +237,39 @@
     <!-- Contact End -->
 
     <!-- Vendor Start -->
-    <div
-      class="container-fluid py-5 wow animate__ animate__fadeInRight animated"
-      data-wow-duration="6s"
-      data-wow-delay="6s"
-      style="
-        visibility: visible;
-        animation-duration: 6s;
-        animation-delay: 6s;
-        animation-name: fadeInRight;
-      "
-    >
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
       <div class="container py-5 mb-5">
         <div class="bg-white">
           <div class="owl-carousel vendor-carousel">
-            <img src="./assets/img/vendor-1.jpg" alt="" />
-            <img src="./assets/img/vendor-2.jpg" alt="" />
-            <img src="./assets/img/vendor-3.jpg" alt="" />
-            <img src="./assets/img/vendor-4.jpg" alt="" />
-            <img src="./assets/img/vendor-5.jpg" alt="" />
-            <img src="./assets/img/vendor-6.jpg" alt="" />
-            <img src="./assets/img/vendor-7.jpg" alt="" />
-            <img src="./assets/img/vendor-8.jpg" alt="" />
+            <img src="../assets/img/vendor-1.jpg" alt="" />
+            <img src="../assets/img/vendor-2.jpg" alt="" />
+            <img src="../assets/img/vendor-3.jpg" alt="" />
+            <img src="../assets/img/vendor-4.jpg" alt="" />
+            <img src="../assets/img/vendor-5.jpg" alt="" />
+            <img src="../assets/img/vendor-6.jpg" alt="" />
+            <img src="../assets/img/vendor-7.jpg" alt="" />
+            <img src="../assets/img/vendor-8.jpg" alt="" />
+            <img src="../assets/img/vendor-9.jpg" alt="" />
           </div>
         </div>
       </div>
     </div>
-
+    <!-- Vendor End -->
     <div class="footer-wrapper-sell">
       <img
-        src="./assets/img/blur1.97b203da81cf6e72b64a.png"
+        src="../../assets/img//blur1.97b203da81cf6e72b64a.png"
         alt=""
         class="blur-footer blur-1"
       /><img
-        src="./assets/img/blur2.1ba0ab06cd517c0f1655.png"
+        src="../../assets/img/blur2.1ba0ab06cd517c0f1655.png"
         alt=""
         class="blur-footer blur-2"
       /><img
-        src="./assets/img/blur3.06d5a0e7a5ebaca8df64.png"
+        src="../../assets/img/blur3.06d5a0e7a5ebaca8df64.png"
         alt=""
         class="blur-footer blur-3"
       /><img
-        src="./assets/img/blur4.0c5957ef5cf6d8a0db42.png"
+        src="../../assets/img/blur4.0c5957ef5cf6d8a0db42.png"
         alt=""
         class="blur-footer blur-4"
       />
@@ -428,15 +408,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/lib/wow/wow.min.js"></script>
-    <script src="./assets/lib/easing/easing.min.js"></script>
-    <script src="./assets/lib/waypoints/waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script>
-      new WOW().init();
-    </script>
+    <script src="../lib/wow/wow.min.js"></script>
+    <!-- <script src="lib/easing/easing.min.js"></script> -->
+    <!-- <script src="lib/waypoints/waypoints.min.js"></script> -->
+    <script src="../lib/counterup/counterup.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="./assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
   </body>
 </html>

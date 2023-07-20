@@ -16,26 +16,66 @@
 
   // Sticky Navbar
   $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
-      $(".sticky-top").addClass("shadow-sm").css("top", "0px");
+    if ($(this).scrollTop() > 45) {
+      $(".navbar").addClass("sticky-top shadow-sm");
     } else {
-      $(".sticky-top").removeClass("shadow-sm").css("top", "-150px");
+      $(".navbar").removeClass("sticky-top shadow-sm");
     }
   });
 
-  // Product carousel
-  $(".product-carousel").owlCarousel({
+  // Dropdown on mouse hover
+  const $dropdown = $(".dropdown");
+  const $dropdownToggle = $(".dropdown-toggle");
+  const $dropdownMenu = $(".dropdown-menu");
+  const showClass = "show";
+
+  $(window).on("load resize", function () {
+    if (this.matchMedia("(min-width: 992px)").matches) {
+      $dropdown.hover(
+        function () {
+          const $this = $(this);
+          $this.addClass(showClass);
+          $this.find($dropdownToggle).attr("aria-expanded", "true");
+          $this.find($dropdownMenu).addClass(showClass);
+        },
+        function () {
+          const $this = $(this);
+          $this.removeClass(showClass);
+          $this.find($dropdownToggle).attr("aria-expanded", "false");
+          $this.find($dropdownMenu).removeClass(showClass);
+        }
+      );
+    } else {
+      $dropdown.off("mouseenter mouseleave");
+    }
+  });
+
+  // Facts counter
+  $('[data-toggle="counter-up"]').counterUp({
+    delay: 10,
+    time: 2000,
+  });
+
+  // Back to top button
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 100) {
+      $(".back-to-top").fadeIn("slow");
+    } else {
+      $(".back-to-top").fadeOut("slow");
+    }
+  });
+  $(".back-to-top").click(function () {
+    $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
+    return false;
+  });
+
+  // Testimonials carousel
+  $(".testimonial-carousel").owlCarousel({
     autoplay: true,
-    smartSpeed: 1000,
-    margin: 25,
+    smartSpeed: 1500,
+    dots: true,
     loop: true,
     center: true,
-    dots: false,
-    nav: true,
-    navText: [
-      '<i class="bi bi-chevron-left"></i>',
-      '<i class="bi bi-chevron-right"></i>',
-    ],
     responsive: {
       0: {
         items: 1,
@@ -52,32 +92,27 @@
     },
   });
 
-  // Testimonial carousel
-  $(".testimonial-carousel").owlCarousel({
+  // Vendor carousel
+  $(".vendor-carousel").owlCarousel({
+    loop: true,
+    margin: 45,
+    dots: false,
+    loop: true,
     autoplay: true,
     smartSpeed: 1000,
-    items: 1,
-    loop: true,
-    dots: true,
-    nav: false,
+    responsive: {
+      0: {
+        items: 2,
+      },
+      576: {
+        items: 4,
+      },
+      768: {
+        items: 6,
+      },
+      992: {
+        items: 8,
+      },
+    },
   });
 })(jQuery);
-// Chờ cho tất cả các tài liệu tải xong
-document.addEventListener("DOMContentLoaded", function () {
-  // Lấy phần tử container
-  const container = document.querySelector(".container-fluid");
-
-  // Khi người dùng cuộn trang, kiểm tra vị trí của phần tử
-  window.addEventListener("scroll", function () {
-    // Vị trí phần tử từ đỉnh trang
-    const elementTop = container.getBoundingClientRect().top;
-
-    // Chiều cao cửa sổ trình duyệt
-    const windowHeight = window.innerHeight;
-
-    // Khi phần tử vào vùng hiển thị, thêm lớp 'animation-triggered' để kích hoạt animation
-    if (elementTop <= windowHeight) {
-      container.classList.add("animation-triggered");
-    }
-  });
-});

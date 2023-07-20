@@ -128,7 +128,10 @@ FormAddNewProduct.onsubmit = (e) => {
   } else {
     dataBuild.price = Number(dataBuild.price);
   }
-
+  if (dataBuild.price < 0) {
+    alert("Giá tiền không được là số âm");
+    return;
+  }
   if (DataMethod === "post") {
     axios
       .post("https://64959f4db08e17c91792686e.mockapi.io/Product", dataBuild)
@@ -167,6 +170,8 @@ FormAddNewProduct.onsubmit = (e) => {
 
 // edit product
 function handleClickEdit(id) {
+  // trong truong hop nay co the call api de lay thong tin chi tiet ve sua nhung de toi uu hieu nang tan dung bien "ProductList"
+
   let Product = ProductList.find((item) => item.id == id);
   FormAddNewProduct.setAttribute("data-product", id);
   FormAddNewProduct.setAttribute("data-method", "put");

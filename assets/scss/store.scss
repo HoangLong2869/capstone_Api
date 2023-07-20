@@ -4,8 +4,7 @@
   overflow-x: hidden;
 
   .banner-image {
-    background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)),
-      url("https://bbdu.ac.in/wp-content/uploads/2020/02/utkarsh-website-banner-background.jpg");
+    background: url("https://t4.ftcdn.net/jpg/02/71/29/75/360_F_271297554_0DAlzyFb8jzYg0lfmUOzyhtMer0orz4h.jpg");
     background-size: cover;
     background-position: center;
 
@@ -595,37 +594,6 @@
     padding: 6px 10px;
   }
 }
-.btn-4 {
-  border: 1px solid;
-  overflow: hidden;
-  position: relative;
-
-  span {
-    z-index: 20;
-  }
-
-  &:after {
-    background: #fff;
-    content: "";
-    height: 155px;
-    left: -75px;
-    opacity: 0.2;
-    position: absolute;
-    top: -50px;
-    transform: rotate(35deg);
-    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-    width: 50px;
-    z-index: -10;
-  }
-}
-
-.btn-4:hover {
-  &:after {
-    left: 120%;
-    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
-  }
-}
-
 .banner-phone-image {
   perspective: 1000px; /* Adjust the perspective value for the desired depth effect */
   width: 500px; /* Adjust the width of the container as per your image size */

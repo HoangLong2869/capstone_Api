@@ -4,11 +4,11 @@ const ButtonLogin = document.querySelector(".button-submit-jsx");
 
 const DataFake = [
   {
-    email: "usertest@gmail.com",
-    password: 12345678,
+    email: "admin@gmail.com",
+    password: 123456,
   },
   {
-    email: "customerg@gmail.com",
+    email: "usertest@gmail.com",
     password: 123456,
   },
   {
