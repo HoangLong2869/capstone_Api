@@ -24,3 +24,5 @@ link:https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass
 Acoount Admin Login
 email: "admin@gmail.com",
 password: 123456,
+
+Link deploy : `https://cozy-griffin-63e4b0.netlify.app/`
