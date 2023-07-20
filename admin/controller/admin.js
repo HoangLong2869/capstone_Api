@@ -3,31 +3,31 @@ const FormAddNewProduct = document.querySelector("#form-add-new-product");
 const InputData = document.querySelectorAll(".input-add-data");
 const ModalBootstrapBTN = document.querySelector("#button-open-modal");
 const ModalBootstrapBTNHidden = document.querySelector(
-    "#button-open-modal-Hidden"
+  "#button-open-modal-Hidden"
 );
 const filterPrice = document.querySelector("#filter-product--js-admin");
 const InputSearch = document.querySelector("#input-search-input");
 const Logout = document.querySelector("#log-out");
 
 function CheckAuth() {
-    const isLogin = localStorage.getItem("isLogin");
+  const isLogin = localStorage.getItem("isLogin");
 
-    if (!isLogin) {
-        window.location.href = "/login/login.html";
-    }
+  if (!isLogin) {
+    window.location.href = "/login/login.html";
+  }
 }
 
 CheckAuth();
 
 Logout.onclick = () => {
-    let check = confirm("Bạn chắc chắn muốn đăng xuất !");
+  let check = confirm("Bạn chắc chắn muốn đăng xuất !");
 
-    if (!check) return;
+  if (!check) return;
 
-    localStorage.removeItem("isLogin");
-    localStorage.removeItem("user");
+  localStorage.removeItem("isLogin");
+  localStorage.removeItem("user");
 
-    CheckAuth();
+  CheckAuth();
 };
 
 let ProductList = [];
@@ -35,14 +35,14 @@ let ProductSearch = [];
 
 // ham format gia tien
 function handleFormatVND(price) {
-    return price.toLocaleString("it-IT", {
-        style: "currency",
-        currency: "VND",
-    });
+  return price.toLocaleString("it-IT", {
+    style: "currency",
+    currency: "VND",
+  });
 }
 
 function ProductItem(item, index) {
-    return `
+  return `
     <tr>
     <th scope="row">${index + 1}</th>
     <td>${item.name}</td>
@@ -50,7 +50,7 @@ function ProductItem(item, index) {
     <td>${handleFormatVND(item.price)}</td>
     <td class="text-center">
         <button class="btn btn-success mb-mobile" onclick="handleClickEdit(${
-            item.id
+          item.id
         })">
             <i class="bi bi-ticket-detailed-fill"></i>
         </button>
@@ -64,196 +64,186 @@ function ProductItem(item, index) {
 
 // ham render
 function Render(list) {
-    if (!list || list.length === 0) {
-        if (TbodyRender) {
-            TbodyRender.innerHTML = `<tr>
-            <td colspan="5" class="text-center">Không có sản phẩm nào thỏa mãn!</td></tr>`;
-        }
-        return;
-    }
-
-    let Product = list.map((item, index) => ProductItem(item, index)).join("");
-
+  if (!list || list.length === 0) {
     if (TbodyRender) {
-        TbodyRender.innerHTML = Product;
+      TbodyRender.innerHTML = `<tr>
+            <td colspan="5" class="text-center">Không có sản phẩm nào thỏa mãn!</td></tr>`;
     }
+    return;
+  }
+
+  let Product = list.map((item, index) => ProductItem(item, index)).join("");
+
+  if (TbodyRender) {
+    TbodyRender.innerHTML = Product;
+  }
 }
 
 function Fetch() {
-    axios
-        .get("https://64959f4db08e17c91792686e.mockapi.io/Product")
-        .then((response) => {
-            if (response.status === 200) {
-                ProductList = [...response.data];
-                Render(ProductList);
-            }
-        })
-        .catch((err) => {
-            alert("Co loi xay ra!");
-            console.log(err);
-        });
+  axios
+    .get("https://64959f4db08e17c91792686e.mockapi.io/Product")
+    .then((response) => {
+      if (response.status === 200) {
+        ProductList = [...response.data];
+        Render(ProductList);
+      }
+    })
+    .catch((err) => {
+      alert("Co loi xay ra!");
+      console.log(err);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", Fetch);
 
 FormAddNewProduct.onsubmit = (e) => {
-    e.preventDefault();
-    const DataMethod = FormAddNewProduct.getAttribute("data-method") || "post";
-    const IdProduct = FormAddNewProduct.getAttribute("data-product");
+  e.preventDefault();
+  const DataMethod = FormAddNewProduct.getAttribute("data-method") || "post";
+  const IdProduct = FormAddNewProduct.getAttribute("data-product");
 
-    const dataBuild = {};
+  const dataBuild = {};
 
-    InputData.forEach((item) => {
-        dataBuild[item.name] = item.value;
-    });
+  InputData.forEach((item) => {
+    dataBuild[item.name] = item.value;
+  });
 
-    // validate du lieu mac du validate mot luot roi luot nay la lop bao ve thu 2
-    if (
-        !dataBuild.name ||
-        !dataBuild.price ||
-        !dataBuild.screen ||
-        !dataBuild.backCamera ||
-        !dataBuild.frontCamera ||
-        !dataBuild.img ||
-        !dataBuild.desc ||
-        !dataBuild.type
-    ) {
-        alert("Bạn đã nhập thiếu trường!");
-        return;
-    }
+  // validate du lieu mac du validate mot luot roi luot nay la lop bao ve thu 2
+  if (
+    !dataBuild.name ||
+    !dataBuild.price ||
+    !dataBuild.screen ||
+    !dataBuild.backCamera ||
+    !dataBuild.frontCamera ||
+    !dataBuild.img ||
+    !dataBuild.desc ||
+    !dataBuild.type
+  ) {
+    alert("Bạn đã nhập thiếu trường!");
+    return;
+  }
 
-    if (Number(dataBuild.price) === NaN) {
-        alert("Giá chỉ chấp nhận số");
-        return;
-    } else {
-        dataBuild.price = Number(dataBuild.price);
-    }
+  if (Number(dataBuild.price) === NaN) {
+    alert("Giá chỉ chấp nhận số");
+    return;
+  } else {
+    dataBuild.price = Number(dataBuild.price);
+  }
 
-    if (DataMethod === "post") {
-        axios
-            .post(
-                "https://64959f4db08e17c91792686e.mockapi.io/Product",
-                dataBuild
-            )
-            .then((response) => {
-                if (response.status === 201) {
-                    Fetch();
-                    ModalBootstrapBTNHidden.click();
-                    FormAddNewProduct.reset();
-                }
-            })
-            .catch((err) => {
-                alert("Co loi xay ra!");
-                console.log(err);
-            });
-    }
+  if (DataMethod === "post") {
+    axios
+      .post("https://64959f4db08e17c91792686e.mockapi.io/Product", dataBuild)
+      .then((response) => {
+        if (response.status === 201) {
+          Fetch();
+          ModalBootstrapBTNHidden.click();
+          FormAddNewProduct.reset();
+        }
+      })
+      .catch((err) => {
+        alert("Co loi xay ra!");
+        console.log(err);
+      });
+  }
 
-    if (DataMethod === "put" && IdProduct) {
-        axios
-            .put(
-                `https://64959f4db08e17c91792686e.mockapi.io/Product/${IdProduct}`,
-                dataBuild
-            )
-            .then((response) => {
-                if (response.status === 200) {
-                    Fetch();
-                    ModalBootstrapBTNHidden.click();
-                    FormAddNewProduct.reset();
-                }
-            })
-            .catch((err) => {
-                alert("Co loi xay ra!");
-                console.log(err);
-            });
-    }
+  if (DataMethod === "put" && IdProduct) {
+    axios
+      .put(
+        `https://64959f4db08e17c91792686e.mockapi.io/Product/${IdProduct}`,
+        dataBuild
+      )
+      .then((response) => {
+        if (response.status === 200) {
+          Fetch();
+          ModalBootstrapBTNHidden.click();
+          FormAddNewProduct.reset();
+        }
+      })
+      .catch((err) => {
+        alert("Co loi xay ra!");
+        console.log(err);
+      });
+  }
 };
 
 // edit product
 function handleClickEdit(id) {
-    // trong truong hop nay co the call api de lay thong tin chi tiet ve sua nhung de toi uu hieu nang tan dung bien "ProductList"
+  let Product = ProductList.find((item) => item.id == id);
+  FormAddNewProduct.setAttribute("data-product", id);
+  FormAddNewProduct.setAttribute("data-method", "put");
 
-    let Product = ProductList.find((item) => item.id == id);
-    FormAddNewProduct.setAttribute("data-product", id);
-    FormAddNewProduct.setAttribute("data-method", "put");
+  InputData.forEach((item) => {
+    for (let i in Product) {
+      if (item.name === i) {
+        item.value = i === "type" ? Product[i].toLowerCase() : Product[i];
+      }
+    }
+  });
 
-    InputData.forEach((item) => {
-        for (let i in Product) {
-            if (item.name === i) {
-                item.value =
-                    i === "type" ? Product[i].toLowerCase() : Product[i];
-            }
-        }
-    });
-
-    ModalBootstrapBTNHidden.click();
+  ModalBootstrapBTNHidden.click();
 }
 
 ModalBootstrapBTN.onclick = () => {
-    FormAddNewProduct.setAttribute("data-method", "post");
-    FormAddNewProduct.reset();
+  FormAddNewProduct.setAttribute("data-method", "post");
+  FormAddNewProduct.reset();
 };
 
 // handle delete
 function handleDelete(id) {
-    let check = confirm("Bạn chắc chắn xóa sản phẩm đó không !");
-    if (!check) return;
+  let check = confirm("Bạn chắc chắn xóa sản phẩm đó không !");
+  if (!check) return;
 
-    axios
-        .delete(`https://64959f4db08e17c91792686e.mockapi.io/Product/${id}`)
-        .then((response) => {
-            if (response.status === 200) {
-                Fetch();
-            }
-        });
+  axios
+    .delete(`https://64959f4db08e17c91792686e.mockapi.io/Product/${id}`)
+    .then((response) => {
+      if (response.status === 200) {
+        Fetch();
+      }
+    });
 }
 
 // filter gia san pham
 
 function handleFilter(value) {
-    switch (value) {
-        case "all": {
-            if (ProductSearch && ProductSearch.length > 0) {
-                Render(ProductSearch);
-            } else {
-                ProductSearch;
-            }
+  switch (value) {
+    case "all": {
+      if (ProductSearch && ProductSearch.length > 0) {
+        Render(ProductSearch);
+      } else {
+        ProductSearch;
+      }
 
-            break;
-        }
-
-        case "Giá thấp đến cao": {
-            let data =
-                ProductSearch.length > 0
-                    ? [...ProductSearch]
-                    : [...ProductList];
-            Render(data.sort((a, b) => a.price - b.price));
-            break;
-        }
-
-        case "Giá cao đến thấp": {
-            let data =
-                ProductSearch.length > 0
-                    ? [...ProductSearch]
-                    : [...ProductList];
-            Render(data.sort((a, b) => b.price - a.price));
-            break;
-        }
-
-        default: {
-            Render(ProductList);
-        }
+      break;
     }
+
+    case "Giá thấp đến cao": {
+      let data =
+        ProductSearch.length > 0 ? [...ProductSearch] : [...ProductList];
+      Render(data.sort((a, b) => a.price - b.price));
+      break;
+    }
+
+    case "Giá cao đến thấp": {
+      let data =
+        ProductSearch.length > 0 ? [...ProductSearch] : [...ProductList];
+      Render(data.sort((a, b) => b.price - a.price));
+      break;
+    }
+
+    default: {
+      Render(ProductList);
+    }
+  }
 }
 
 filterPrice.onchange = (e) => {
-    handleFilter(e.target.value);
+  handleFilter(e.target.value);
 };
 
 InputSearch.oninput = (e) => {
-    // tim kiem san pham theo ten
-    const regex = new RegExp(e.target.value, "i");
-    const matchProduct = ProductList.filter((item) => regex.test(item.name));
-    ProductSearch = [...matchProduct];
-    Render(matchProduct);
-    handleFilter(filterPrice.value);
+  // tim kiem san pham theo ten
+  const regex = new RegExp(e.target.value, "i");
+  const matchProduct = ProductList.filter((item) => regex.test(item.name));
+  ProductSearch = [...matchProduct];
+  Render(matchProduct);
+  handleFilter(filterPrice.value);
 };

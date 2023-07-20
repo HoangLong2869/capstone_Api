@@ -4,7 +4,7 @@
   overflow-x: hidden;
 }
 .store-wrapper .banner-image {
-  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url(https://bbdu.ac.in/wp-content/uploads/2020/02/utkarsh-website-banner-background.jpg);
+  background: linear-gradient(rgba(29, 38, 113, 0.8), rgba(195, 55, 100, 0.8)), url("https://static.vecteezy.com/system/resources/thumbnails/007/926/257/small/futuristic-hud-interface-technology-background-vector.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -268,7 +268,6 @@
   align-items: center;
 }
 .store-wrapper .cart-detail .cart-wrapper .jsx-chuk .body-jsx .jsx-render-pro .item .introduce .image {
-  background-image: url("https://t004.gokisoft.com/uploads/2021/07/p-7537-ao-polo-nam.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

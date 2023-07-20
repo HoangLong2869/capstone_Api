@@ -23,35 +23,6 @@
     }
   });
 
-  // Back to top button
-  $(window).scroll(function () {
-    if ($(this).scrollTop() > 300) {
-      $(".back-to-top").fadeIn("slow");
-    } else {
-      $(".back-to-top").fadeOut("slow");
-    }
-  });
-  $(".back-to-top").click(function () {
-    $("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
-    return false;
-  });
-
-  // Modal Video
-  var $videoSrc;
-  $(".btn-play").click(function () {
-    $videoSrc = $(this).data("src");
-  });
-  console.log($videoSrc);
-  $("#videoModal").on("shown.bs.modal", function (e) {
-    $("#video").attr(
-      "src",
-      $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0"
-    );
-  });
-  $("#videoModal").on("hide.bs.modal", function (e) {
-    $("#video").attr("src", $videoSrc);
-  });
-
   // Product carousel
   $(".product-carousel").owlCarousel({
     autoplay: true,
@@ -91,3 +62,22 @@
     nav: false,
   });
 })(jQuery);
+// Chờ cho tất cả các tài liệu tải xong
+document.addEventListener("DOMContentLoaded", function () {
+  // Lấy phần tử container
+  const container = document.querySelector(".container-fluid");
+
+  // Khi người dùng cuộn trang, kiểm tra vị trí của phần tử
+  window.addEventListener("scroll", function () {
+    // Vị trí phần tử từ đỉnh trang
+    const elementTop = container.getBoundingClientRect().top;
+
+    // Chiều cao cửa sổ trình duyệt
+    const windowHeight = window.innerHeight;
+
+    // Khi phần tử vào vùng hiển thị, thêm lớp 'animation-triggered' để kích hoạt animation
+    if (elementTop <= windowHeight) {
+      container.classList.add("animation-triggered");
+    }
+  });
+});
